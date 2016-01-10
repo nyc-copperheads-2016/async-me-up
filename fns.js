@@ -4,10 +4,10 @@ var movieSearch = function(movie){
       mode = 'search/movie?query=',
       input = movie,
       key = '&api_key=e0c6c7bded5055b146501304684b8f94';
-    $.get(url + mode + input + key, function(response) {
-      hello = movieCredits(response.results[0].id,response.results[0].original_title)
-    })
-    debugger
+    return $.get(url + mode + input + key).then(function(response) {
+      console.log(response);
+      return movieCredits(response.results[0].id,response.results[0].original_title)
+    });
   };
 
 var tvSearch = function(tv){
@@ -33,8 +33,8 @@ var movieCredits = function(id,title){
     response.cast.forEach(function(element){
       cast.push(element.character, element.name);
     });
+    return cast;
   });
-  return cast
  };
 
 
