@@ -10,7 +10,7 @@ This won't work:
 
 ```
 var cast = movieSearch('titanic');
-var first actor = cast[0];
+var firstActor = cast[0];
 ```
 
 You have to do something like
@@ -18,7 +18,7 @@ You have to do something like
 ```
 var deferred = movieSearch('titanic');
 deferred.then(function(cast){
-  var first actor = cast[0];
+  var firstActor = cast[0];
 });
 ```
 
